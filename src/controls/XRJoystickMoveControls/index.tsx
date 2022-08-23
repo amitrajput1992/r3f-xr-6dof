@@ -24,9 +24,7 @@ const XRJoystickMoveControls = ({ onMoveRight, onMoveForward }: Props) => {
   function frameLeftController() {
     const axes = leftController?.inputSource.gamepad?.axes || [undefined, undefined, 0, 0];
     const [_1, _2, xAxis, yAxis] = axes as [any, any, number, number];
-
-    forward.current = yAxis / 20;
-    right.current = xAxis / 20;
+    return [yAxis / 20, xAxis / 20];
   }
 
   /**
@@ -35,9 +33,7 @@ const XRJoystickMoveControls = ({ onMoveRight, onMoveForward }: Props) => {
   function frameRightController() {
     const axes = rightController?.inputSource.gamepad?.axes || [undefined, undefined, 0, 0];
     const [_1, _2, xAxis, yAxis] = axes as [any, any, number, number];
-
-    forward.current = yAxis / 20;
-    right.current = xAxis / 20;
+    return [yAxis / 20, xAxis / 20];
   }
 
   function updatePlayer() {
@@ -59,8 +55,12 @@ const XRJoystickMoveControls = ({ onMoveRight, onMoveForward }: Props) => {
   }
 
   useFrame(() => {
-    frameLeftController();
-    frameRightController();
+    const [lforward, lright] = frameLeftController();
+    const [rforward, rright] = frameRightController();
+
+    forward.current = lforward || rforward;
+    right.current = lright || rright;
+
     updatePlayer();
   });
 
