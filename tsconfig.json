@@ -1,42 +1,27 @@
 {
-    // https://www.typescriptlang.org/tsconfig#module
-    "compilerOptions": {
-        // module system used. This is for the import statements. "CommonJS", "ES2020"
-        "module": "ES2022", //https://thesoftwaresimpleton.com/blog/2019/03/15/ts-code-splitting
-        "moduleResolution": "node",
-        "noImplicitAny": true,
-        "preserveConstEnums": true,
-        "resolveJsonModule": true,
-        // Import non-ES modules as default imports.
-        "esModuleInterop": true,
-        // Target latest version of ECMAScript available (ES2020). This is for our code (and not imported code)
-        // null coalescing doesn't work if target is made ES2020
-        "target": "ES2021",
-        // default set of type definitions for built-in JS APIs. Which this a lot of default JS objects become available 
-        "lib": [
-            "ES2021",
-            "DOM"
-        ],
-        // Enable strictest settings like strictNullChecks & noImplicitAny. Needed for Typescript to understand complex types
-        "strict": true,
-        // allow jsx syntax
-        "jsx": "react",
-        // Search under node_modules for non-relative imports.
-        // "moduleResolution": "node", //Not needed - its the default
-        // Process & infer types from .js files
-        // "allowJs": true, //Not needed yet
-        // Don't emit js files; allow Babel to transform files. Not making true here as watch mode needs emit
-        // Instead of setting this here, we control it using --noEmit in package.json
-        // "noEmit": true,
-        //Temp: keeping bottom four commented lines, maybe deleted
-        // Disallow features that require cross-file information for emit.
-        // "isolatedModules": false,
-        // "rootDirs": ["src"],
-        // "baseUrl": "."
-        //Getting lots of threejs and use-tweaks type errors. This prevents typescript from going inside node_modules.
-        "skipLibCheck": true
-    },
-    "include": [
-        "src/**/*"
-    ]
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "target": "ES2021",
+    "lib": [
+      "ES2021",
+      "DOM"
+    ],
+    "strict": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*"
+  ]
 }

@@ -9,25 +9,32 @@
   ],
   "main": "src/index.tsx",
   "dependencies": {
-    "@react-three/drei": "9.23.1",
-    "@react-three/fiber": "7.0.29",
+    "@react-three/drei": "9.23.3",
+    "@react-three/fiber": "8.6.0",
     "@react-three/xr": "4.1.5",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
-    "@types/three": "0.139.0",
-    "react": "18.0.0",
+    "@types/three": "^0.143.1",
+    "react": "^18.2.0",
     "react-div-100vh": "0.7.0",
-    "react-dom": "18.0.0",
-    "react-scripts": "4.0.3",
-    "three": "0.139.2"
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "three": "0.143.0"
   },
   "devDependencies": {
-    "@types/react": "17.0.20",
-    "@types/react-dom": "17.0.9",
-    "typescript": "4.4.2"
+    "@juggle/resize-observer": "^3.4.0",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "prettier": "^2.7.1",
+    "styled-components": "^5.3.5",
+    "typescript": "4.7.4",
+    "zustand": "^4.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "export PORT=9090;export BROWSER=none && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
