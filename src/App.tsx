@@ -1,15 +1,19 @@
 import React from "react";
 import { ResizeObserver } from "@juggle/resize-observer";
-import PanoImage from "./components/PanoImage";
 import MousePanCameraControls from "./controls/MousePanCameraController";
-import Space from "./components/Space";
-import MovementControls from "./controls/MovementControls";
 import { Stats } from "@react-three/drei";
 import ScrollPanCameraControls from "./controls/ScrollCameraControls";
 import { DefaultXRControllers, VRCanvas } from "@react-three/xr";
-import XRJoystickMoveControls from "./controls/XRJoystickMoveControls";
 import XRReorientWorld from "./helpers/XRReorientWorld";
 import { useStore } from "./store";
+import Children from "./components/Children";
+import OctreeImpl from "./controls/OctreeImpl";
+import XRJoystickOctreeControls from "./controls/XRJoystickOctreeControls";
+import ReferencePlane from "./helpers/ReferencePlane";
+import MovementControls from "./controls/MovementControls";
+
+const search = new URL(window.location.href).searchParams;
+const enableXRControls = search.get("enableXRControls") == "true";
 
 export default function App() {
   const setWorld = useStore(s => s.setWorld);
@@ -32,10 +36,15 @@ export default function App() {
       flat={true}
     >
       <group name={"controls"}>
+        <ReferencePlane />
+        {
+          enableXRControls?
+            <XRJoystickOctreeControls />:
+            <OctreeImpl />
+        }
+
         <MousePanCameraControls />
-        <MovementControls />
         <ScrollPanCameraControls />
-        <XRJoystickMoveControls/>
         <XRReorientWorld/>
         <DefaultXRControllers />
       </group>
@@ -45,9 +54,7 @@ export default function App() {
             <ambientLight color={"white"} intensity={0.7} />
             <pointLight color={"white"} position={[0, 0, 0]} intensity={0.7} />
           </group>
-
-          <PanoImage />
-          <Space />
+          <Children />
         </group>
       </React.Suspense>
       <Stats />

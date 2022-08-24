@@ -14,13 +14,9 @@ import { GLTFLoader } from "three-stdlib";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils";
 import { a } from "@react-spring/three";
 
-
-type Props = {
-  rotation: [number, number, number],
-  avatarUrl: string
-};
-
 const URL = "https://s.vrgmetri.com/gb-web/z5-edge/6DOF/environments/Event/eventModel_v11.glb";
+
+const position = [0, -3.2, 0] as [number, number, number];
 
 const Space = () => {
   const ref = useRef<Group>();
@@ -28,7 +24,7 @@ const Space = () => {
 
   // @ts-ignore
   const gltfScene = useMemo(() => SkeletonUtils.clone(gltf.scene), [gltf]);
-  const [position, scale] = useMemo(() => getScaleAndAdjustedPosition(gltfScene), [gltfScene]);
+  const [_position, scale] = useMemo(() => getScaleAndAdjustedPosition(gltfScene), [gltfScene]);
 
   useEffect(() => {
     const encoding = LinearEncoding;
@@ -98,7 +94,7 @@ const Space = () => {
     <group position={position}>
       {/*
       //@ts-ignore*/}
-      <a.primitive ref={ref} object={gltfScene} scale={scale} />
+      <a.primitive ref={ref} object={gltfScene} scale={1} />
     </group>
   );
 

@@ -30,7 +30,7 @@ const XRReorientWorld = () => {
       vrAdjustedPosition.copy(vrCamera?.position);
       // apply adjusted scene graph position
       if(world) {
-        world.position.y += vrCamera?.position?.y;
+        // world.position.y += vrCamera?.position?.y;
       }
       previouslyInVR = true;
     } else {
@@ -38,10 +38,10 @@ const XRReorientWorld = () => {
         previouslyInVR = false;
         // restore scene graph position
         if(world) {
-          world.position.y -= vrAdjustedPosition.y;
+          // world.position.y -= vrAdjustedPosition.y;
         }
         // restore camera position
-        camera.position.y -= vrAdjustedPosition.y;
+        // camera.position.y -= vrAdjustedPosition.y;
       }
     }
   }
