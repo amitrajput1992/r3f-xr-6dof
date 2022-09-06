@@ -30,14 +30,17 @@
     "@typescript-eslint/parser": "^5.33.1",
     "prettier": "^2.7.1",
     "styled-components": "^5.3.5",
+    "tls-keygen": "^3.7.0",
     "typescript": "4.7.4",
     "zustand": "^4.1.1"
   },
   "scripts": {
-    "start": "export PORT=9090;export BROWSER=none && react-scripts start",
+    "watch-https": "HTTPS=true PORT=9090 BROWSER=none react-scripts start",
+    "watch": "export PORT=9090;export BROWSER=none && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gencerts": "node ./dev/scripts/keygen.js"
   },
   "browserslist": [
     ">0.2%",
