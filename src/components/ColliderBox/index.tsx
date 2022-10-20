@@ -22,7 +22,7 @@ const ColliderBox = ({dimensions = defaultDimensions, name}: Props) => {
       {/*  <edgesGeometry attach={"geometry"} args={[geometry]}/>*/}
       {/*  <lineBasicMaterial attach={"material"} color={"#FFFFFF"} opacity={lineOpacity} transparent={true}/>*/}
       {/*</lineSegments>*/}
-      <mesh userData={{ needsRenderOrder: true, testCollision: true }} scale={invertedScale}>
+      <mesh userData={{ needsRenderOrder: true, testCollision: true, useForXRMovement: true }} scale={invertedScale}>
         {/* dimWidth: 1, dimHeight: 1,dimDepth: 1, pivotPoint: 'center' */}
         <boxBufferGeometry attach="geometry" args={[dimensions[0], dimensions[1], dimensions[2]]} />
         <meshBasicMaterial

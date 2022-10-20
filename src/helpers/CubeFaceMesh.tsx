@@ -85,7 +85,7 @@ const CubeFaceMesh = React.forwardRef(({ width = 2048, opacity = 1, scale = new 
     <mesh
       ref={ref}
       name={"CubeFaceMesh"}
-      userData={{ needsRenderOrder: true, testCollision: true }}
+      userData={{ needsRenderOrder: true, testCollision: true, useForXRMovement: true }}
       position={position}
       scale={scale}
       material={materials}

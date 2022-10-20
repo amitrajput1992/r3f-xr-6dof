@@ -51,7 +51,7 @@ const Children = () => {
         <CubeFaceMesh
           size={size}
           src={"https://s.gmetri.com/gb-web/z5-editor/6DOF/plus_outlined_64_1.png"}
-          opacity={0.5}
+          opacity={0.0}
         />
       </Placer>
     </group>
