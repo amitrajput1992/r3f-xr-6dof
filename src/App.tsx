@@ -11,8 +11,9 @@ import Children from "./components/Children";
 import OctreeImpl from "./controls/OctreeImpl";
 import XRJoystickOctreeControls from "./controls/XRJoystickOctreeControls";
 import ReferencePlane from "./helpers/ReferencePlane";
-import MovementControls from "./controls/MovementControls";
-import ProjectileControls from "./controls/ProjectileControls";
+// import MovementControls from "./controls/MovementControls";
+// import ProjectileControls from "./controls/ProjectileControls";
+import CursorControls from "./controls/CursorControls";
 
 const search = new URL(window.location.href).searchParams;
 const enableXRControls = search.get("enableXRControls") == "true";
@@ -38,7 +39,7 @@ export default function App() {
       flat={true}
     >
       <group name={"controls"}>
-        {/*<ReferencePlane />*/}
+        <ReferencePlane />
         {
           enableXRControls?
             <XRJoystickOctreeControls />:
@@ -49,7 +50,8 @@ export default function App() {
         <ScrollPanCameraControls />
         <XRReorientWorld/>
         <DefaultXRControllers />
-        <ProjectileControls />
+        <CursorControls />
+        {/*<ProjectileControls />*/}
       </group>
       <React.Suspense>
         <group name={"world"} ref={setWorld}>
